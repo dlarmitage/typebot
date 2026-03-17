@@ -43,6 +43,10 @@ export const SignInForm = ({ defaultEmail, className }: Props) => {
   const hasNoAuthProvider =
     !isLoadingProviders && Object.keys(providers ?? {}).length === 0;
 
+  const hasSocialProviders =
+    !isLoadingProviders &&
+    Object.keys(providers ?? {}).some((key) => key !== "nodemailer");
+
   useEffect(() => {
     if (status === "authenticated") {
       router.replace(redirectPath ? sanitizeUrl(redirectPath) : "/typebots");
@@ -130,10 +134,14 @@ export const SignInForm = ({ defaultEmail, className }: Props) => {
     <div className={cn("flex flex-col gap-6 w-[330px]", className)}>
       {!isMagicCodeSent && (
         <>
-          <SocialLoginButtons providers={providers} />
+          {hasSocialProviders && (
+            <>
+              <SocialLoginButtons providers={providers} />
+              <DividerWithText>{t("auth.orEmailLabel")}</DividerWithText>
+            </>
+          )}
           {providers?.nodemailer && (
             <>
-              <DividerWithText>{t("auth.orEmailLabel")}</DividerWithText>
               <form
                 className="flex items-center gap-2"
                 onSubmit={handleEmailSubmit}

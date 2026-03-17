@@ -38,6 +38,167 @@
   }
 }
 
+/* ===== Care for the Kids – Sign-in page branding ===== */
+
+.cftk-signin-bg {
+  background: linear-gradient(135deg, #fdf5f0 0%, #f0fafa 50%, #fef6f1 100%);
+}
+
+.cftk-signin-card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  box-shadow:
+    0 4px 24px rgba(13, 115, 119, 0.08),
+    0 1px 3px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(125, 200, 196, 0.25);
+  animation: cftk-fade-in 0.5s ease-out;
+}
+
+.cftk-text-dark {
+  color: #0a5c5f;
+}
+
+.cftk-text-muted {
+  color: #5a8d8f;
+}
+
+/* Decorative background blobs */
+.cftk-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.cftk-blob-coral {
+  width: 400px;
+  height: 400px;
+  background: #e8734a;
+  top: -100px;
+  right: -80px;
+  animation: cftk-float 8s ease-in-out infinite;
+}
+
+.cftk-blob-teal {
+  width: 350px;
+  height: 350px;
+  background: #0d7377;
+  bottom: -80px;
+  left: -60px;
+  animation: cftk-float 10s ease-in-out infinite reverse;
+}
+
+.cftk-blob-peach {
+  width: 300px;
+  height: 300px;
+  background: #f5b99a;
+  top: 50%;
+  left: 60%;
+  animation: cftk-float 12s ease-in-out infinite 2s;
+}
+
+@keyframes cftk-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes cftk-float {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(15px, -20px) scale(1.05);
+  }
+  66% {
+    transform: translate(-10px, 10px) scale(0.95);
+  }
+}
+
+/* Override link color on sign-in page to use teal */
+.cftk-signin-bg a {
+  color: #0d7377;
+}
+.cftk-signin-bg a:hover {
+  color: #0a5c5f;
+}
+
+/* Primary button → coral/orange brand color */
+.cftk-signin-bg button[type="submit"],
+.cftk-signin-bg .cftk-btn-primary {
+  background: linear-gradient(135deg, #e8734a 0%, #d4633e 100%);
+  color: #fff;
+  border: none;
+  box-shadow: 0 2px 8px rgba(232, 115, 74, 0.3);
+  transition: all 0.2s ease;
+}
+.cftk-signin-bg button[type="submit"]:hover,
+.cftk-signin-bg .cftk-btn-primary:hover {
+  background: linear-gradient(135deg, #d4633e 0%, #c0572f 100%);
+  box-shadow: 0 4px 12px rgba(232, 115, 74, 0.4);
+  transform: translateY(-1px);
+}
+.cftk-signin-bg button[type="submit"]:active,
+.cftk-signin-bg .cftk-btn-primary:active {
+  transform: translateY(0);
+}
+
+/* Input fields → teal focus ring */
+.cftk-signin-bg input {
+  border-color: rgba(125, 200, 196, 0.4);
+  transition: all 0.2s ease;
+}
+.cftk-signin-bg input:hover {
+  border-color: rgba(13, 115, 119, 0.4);
+}
+.cftk-signin-bg input:focus {
+  border-color: transparent;
+  --tw-ring-color: #0d7377;
+  box-shadow: 0 0 0 2px #0d7377;
+  outline: none;
+}
+
+/* OTP slots → teal active ring */
+.cftk-signin-bg [data-active="true"] {
+  --tw-ring-color: #0d7377;
+  border-color: #0d7377;
+}
+
+/* Social login buttons → subtle brand styling */
+.cftk-signin-bg button[data-variant="outline-secondary"],
+.cftk-signin-bg button[data-variant="outline"] {
+  border-color: rgba(125, 200, 196, 0.3);
+  transition: all 0.2s ease;
+}
+.cftk-signin-bg button[data-variant="outline-secondary"]:hover,
+.cftk-signin-bg button[data-variant="outline"]:hover {
+  border-color: #0d7377;
+  background: rgba(13, 115, 119, 0.05);
+}
+
+/* Alert success → teal tinted */
+.cftk-signin-bg [data-variant="success"] {
+  border-color: rgba(13, 115, 119, 0.3);
+  background: rgba(13, 115, 119, 0.08);
+}
+.cftk-signin-bg [data-variant="success"] svg {
+  color: #0d7377;
+}
+
+/* Divider line */
+.cftk-signin-bg .bg-gray-5 {
+  background: rgba(125, 200, 196, 0.3);
+}
+
+/* ===== End Care for the Kids branding ===== */
+
 /* Offset top position so that it is right below onboarding header */
 typebot-standard.onboarding-typebot::part(progress-bar-container) {
   top: 55px;
