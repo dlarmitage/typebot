@@ -5,6 +5,7 @@ import type { AppProps } from "next/app";
 import { useRouter } from "next/router";
 import { SessionProvider } from "next-auth/react";
 import { useEffect } from "react";
+import { HelpChat } from "@/components/HelpChat";
 import { SupportBubble } from "@/components/SupportBubble";
 import { TypebotProvider } from "@/features/editor/providers/TypebotProvider";
 import { UserProvider } from "@/features/user/UserProvider";
@@ -72,6 +73,7 @@ const App = ({ Component, pageProps }: AppProps) => {
                       <Component {...pageProps} />
                       {!router.pathname.endsWith("edit") &&
                         isCloudProdInstance() && <SupportBubble />}
+                      <HelpChat />
                     </WorkspaceProvider>
                   </TypebotProvider>
                 </UserProvider>

@@ -141,32 +141,30 @@ export const SignInForm = ({ defaultEmail, className }: Props) => {
             </>
           )}
           {providers?.nodemailer && (
-            <>
-              <form
-                className="flex items-center gap-2"
-                onSubmit={handleEmailSubmit}
+            <form
+              className="flex items-center gap-2"
+              onSubmit={handleEmailSubmit}
+            >
+              <Input
+                name="email"
+                type="email"
+                autoComplete="email"
+                placeholder="email@company.com"
+                required
+                value={emailValue}
+                onValueChange={setEmailValue}
+              />
+              <Button
+                type="submit"
+                disabled={
+                  ["loading", "authenticated"].includes(status) ||
+                  authLoading ||
+                  isMagicCodeSent
+                }
               >
-                <Input
-                  name="email"
-                  type="email"
-                  autoComplete="email"
-                  placeholder="email@company.com"
-                  required
-                  value={emailValue}
-                  onValueChange={setEmailValue}
-                />
-                <Button
-                  type="submit"
-                  disabled={
-                    ["loading", "authenticated"].includes(status) ||
-                    authLoading ||
-                    isMagicCodeSent
-                  }
-                >
-                  {t("auth.emailSubmitButton.label")}
-                </Button>
-              </form>
-            </>
+                {t("auth.emailSubmitButton.label")}
+              </Button>
+            </form>
           )}
         </>
       )}
