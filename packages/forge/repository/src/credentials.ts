@@ -27,6 +27,8 @@ import { perplexityBlock } from "@typebot.io/perplexity-block";
 import { perplexityCredentialsSchema } from "@typebot.io/perplexity-block/schemas";
 import { posthogBlock } from "@typebot.io/posthog-block";
 import { posthogCredentialsSchema } from "@typebot.io/posthog-block/schemas";
+import { resendBlock } from "@typebot.io/resend-block";
+import { resendCredentialsSchema } from "@typebot.io/resend-block/schemas";
 import { segmentBlock } from "@typebot.io/segment-block";
 import { segmentCredentialsSchema } from "@typebot.io/segment-block/schemas";
 import { togetherAiBlock } from "@typebot.io/together-ai-block";
@@ -52,4 +54,5 @@ export const forgedCredentialsSchemas = {
   [deepSeekBlock.id]: deepSeekCredentialsSchema,
   [blinkBlock.id]: blinkCredentialsSchema,
   [gmailBlock.id]: gmailCredentialsSchema,
+  [resendBlock.id]: resendCredentialsSchema,
 };

@@ -31,6 +31,8 @@ import { posthogBlock } from "@typebot.io/posthog-block";
 import posthogBlockHandlers from "@typebot.io/posthog-block/handlers";
 import { qrCodeBlock } from "@typebot.io/qrcode-block";
 import qrCodeBlockHandlers from "@typebot.io/qrcode-block/handlers";
+import { resendBlock } from "@typebot.io/resend-block";
+import resendBlockHandlers from "@typebot.io/resend-block/handlers";
 import { segmentBlock } from "@typebot.io/segment-block";
 import segmentBlockHandlers from "@typebot.io/segment-block/handlers";
 import { togetherAiBlock } from "@typebot.io/together-ai-block";
@@ -58,4 +60,5 @@ export const forgedBlockHandlers = {
   [deepSeekBlock.id]: deepSeekBlockHandlers,
   [blinkBlock.id]: blinkBlockHandlers,
   [gmailBlock.id]: gmailBlockHandlers,
+  [resendBlock.id]: resendBlockHandlers,
 };

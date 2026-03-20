@@ -5,6 +5,7 @@ import { Button } from "@typebot.io/ui/components/Button";
 import { Tooltip } from "@typebot.io/ui/components/Tooltip";
 import { useOpenControls } from "@typebot.io/ui/hooks/useOpenControls";
 import { ArrowLeft01Icon } from "@typebot.io/ui/icons/ArrowLeft01Icon";
+import { Book02Icon } from "@typebot.io/ui/icons/Book02Icon";
 import { Copy01Icon } from "@typebot.io/ui/icons/Copy01Icon";
 import { CustomerSupportIcon } from "@typebot.io/ui/icons/CustomerSupportIcon";
 import { LayoutBottomIcon } from "@typebot.io/ui/icons/LayoutBottomIcon";
@@ -222,6 +223,14 @@ const LeftElements = ({
             </Tooltip.Root>
           </div>
         )}
+        <Button
+          onClick={() => window.open("https://docs.typebot.io", "_blank")}
+          variant="secondary"
+          size="sm"
+        >
+          <Book02Icon />
+          <span className="hidden xl:inline">Docs</span>
+        </Button>
         <Button onClick={onHelpClick} variant="secondary" size="sm">
           <CustomerSupportIcon />
           <span className="hidden xl:inline">

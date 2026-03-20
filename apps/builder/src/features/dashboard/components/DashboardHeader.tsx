@@ -2,6 +2,7 @@ import { useTranslate } from "@tolgee/react";
 import { isNotDefined } from "@typebot.io/lib/utils";
 import { Button } from "@typebot.io/ui/components/Button";
 import { useOpenControls } from "@typebot.io/ui/hooks/useOpenControls";
+import { Book02Icon } from "@typebot.io/ui/icons/Book02Icon";
 import { HardDriveIcon } from "@typebot.io/ui/icons/HardDriveIcon";
 import { Settings01Icon } from "@typebot.io/ui/icons/Settings01Icon";
 import Link from "next/link";
@@ -55,6 +56,13 @@ export const DashboardHeader = () => {
               }
             />
           )}
+          <Button
+            variant="secondary"
+            onClick={() => window.open("https://docs.typebot.io", "_blank")}
+          >
+            <Book02Icon />
+            Docs
+          </Button>
           {!workspace?.isPastDue && (
             <Button
               variant="secondary"

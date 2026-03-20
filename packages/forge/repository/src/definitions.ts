@@ -15,6 +15,7 @@ import { openAIBlock } from "@typebot.io/openai-block";
 import { perplexityBlock } from "@typebot.io/perplexity-block";
 import { posthogBlock } from "@typebot.io/posthog-block";
 import { qrCodeBlock } from "@typebot.io/qrcode-block";
+import { resendBlock } from "@typebot.io/resend-block";
 import { segmentBlock } from "@typebot.io/segment-block";
 import { togetherAiBlock } from "@typebot.io/together-ai-block";
 import { zendeskBlock } from "@typebot.io/zendesk-block";
@@ -39,6 +40,7 @@ export const forgedBlocks = {
   [deepSeekBlock.id]: deepSeekBlock,
   [blinkBlock.id]: blinkBlock,
   [gmailBlock.id]: gmailBlock,
+  [resendBlock.id]: resendBlock,
 };
 export type ForgedBlockDefinition =
   (typeof forgedBlocks)[keyof typeof forgedBlocks];
