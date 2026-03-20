@@ -31,13 +31,20 @@ export default [
 
         if (error) {
           logs.add(`Resend error: ${error.message}`);
+          options.responseMapping?.forEach((mapping) => {
+            if (!mapping.variableId) return;
+            if (mapping.item === "Status")
+              variables.set([{ id: mapping.variableId, value: "failed" }]);
+          });
           return;
         }
 
         options.responseMapping?.forEach((mapping) => {
-          if (!mapping.variableId || !data) return;
+          if (!mapping.variableId) return;
           if ((mapping.item ?? "Email ID") === "Email ID")
-            variables.set([{ id: mapping.variableId, value: data.id }]);
+            variables.set([{ id: mapping.variableId, value: data?.id }]);
+          if (mapping.item === "Status")
+            variables.set([{ id: mapping.variableId, value: "sent" }]);
         });
       } catch (error) {
         const parsedError = await parseUnknownError({

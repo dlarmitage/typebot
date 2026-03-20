@@ -53,7 +53,7 @@ export const sendEmail = createAction({
         accordion: "Advanced configuration",
       },
     }),
-    responseMapping: option.saveResponseArray(["Email ID"]).meta({
+    responseMapping: option.saveResponseArray(["Email ID", "Status"]).meta({
       layout: {
         accordion: "Save response",
       },
