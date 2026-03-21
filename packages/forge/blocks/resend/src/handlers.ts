@@ -27,7 +27,9 @@ export default [
             ? options.to.split(",").map((e) => e.trim())
             : options.to,
           subject: options.subject,
-          html: options.body || "<p></p>",
+          html: options.signature
+            ? `${options.body || ""}<br>${options.signature}`
+            : options.body || "<p></p>",
           replyTo: options.replyTo ?? undefined,
           cc: options.cc ?? undefined,
           bcc: options.bcc ?? undefined,

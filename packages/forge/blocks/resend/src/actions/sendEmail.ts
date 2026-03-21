@@ -53,6 +53,17 @@ export const sendEmail = createAction({
         accordion: "Advanced configuration",
       },
     }),
+    signature: option.string.meta({
+      layout: {
+        label: "HTML Signature",
+        inputType: "textarea",
+        accordion: "Advanced configuration",
+        helperText:
+          "HTML signature appended to every email sent by this block.",
+        placeholder:
+          "<p>Best regards,<br><strong>Your Name</strong><br>Your Company</p>",
+      },
+    }),
     responseMapping: option.saveResponseArray(["Email ID", "Status"]).meta({
       layout: {
         accordion: "Save response",
