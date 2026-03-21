@@ -12,7 +12,9 @@ export default [
       }
 
       if (!options.from || !options.to || !options.subject) {
-        logs.add("Missing required fields: from, to, and subject are required");
+        logs.add(
+          `Missing required fields: from=${options.from ?? "(empty)"}, to=${options.to ?? "(empty)"}, subject=${options.subject ?? "(empty)"}`,
+        );
         return;
       }
 
@@ -21,9 +23,11 @@ export default [
       try {
         const { data, error } = await resend.emails.send({
           from: options.from,
-          to: options.to,
+          to: options.to.includes(",")
+            ? options.to.split(",").map((e) => e.trim())
+            : options.to,
           subject: options.subject,
-          html: options.body ?? "",
+          html: options.body || "<p></p>",
           replyTo: options.replyTo ?? undefined,
           cc: options.cc ?? undefined,
           bcc: options.bcc ?? undefined,
